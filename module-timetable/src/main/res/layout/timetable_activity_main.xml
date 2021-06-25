@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp">
+        <TextView
+            android:id="@+id/id_title_tab1"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:textSize="15sp"
+            android:text="首页"/>
+        <TextView
+            android:id="@+id/id_title_tab2"
+            android:layout_toRightOf="@id/id_title_tab1"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            android:text="课表"/>
+        <View
+            android:id="@+id/id_title_nav"
+            android:layout_alignLeft="@id/id_title_tab1"
+            android:layout_below="@id/id_title_tab1"
+            android:layout_width="50dp"
+            android:layout_height="2dp"
+            android:background="@color/app_red"/>
+
+        <TextView
+            android:id="@+id/id_title"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_toRightOf="@id/id_title_tab2"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/app_blue2"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/id_search_school"
+            android:layout_toRightOf="@id/id_title_tab2"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/timetable_border_f5f5f5"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/id_main_school_text"
+                android:textColor="@color/app_gray"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="16sp"
+                android:background="@android:color/transparent"
+                android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/timetable_ic_search2"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/id_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
+

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/app_white_slight">
+
+        <ImageView
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:src="@drawable/timetable_ic_back2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="申请适配"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:alpha="0.5"
+        android:background="@color/app_panel_bg" />
+
+    <EditText
+        android:id="@+id/id_school_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="输入学校名称"/>
+    <EditText
+        android:id="@+id/id_url_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:hint="输入教务处网址"/>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/app_blue1" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/app_red_orange"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="1dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="前往适配"
+            android:textColor="@color/app_white" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/app_gray"
+        android:lineSpacingExtra="4dp"
+        android:text="如果网址和其他人上传的不同，那么可以在学校名称后增加后缀\n1.输入教务网址后,登录教务处,点击页内链接跳转到个人课表页面,然后点击源码上传按钮,上传成功后等待开发者适配即可.\n2.适配完成后，我会给该校所有用户发送一条时光猫消息.\n3.如果遇到网址内部链接无法点击、无法登录等等问题，请联系开发者QQ:1193600556\n"
+        android:gravity="center_vertical"/>
+
+</LinearLayout>

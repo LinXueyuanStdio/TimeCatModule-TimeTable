@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_white"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <LinearLayout
+            android:id="@+id/id_top_nav"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/id_top_bg"
+            android:orientation="horizontal">
+            <LinearLayout
+              android:id="@+id/id_func_multi"
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:gravity="center"
+              android:orientation="vertical">
+
+                <LinearLayout
+                  android:layout_width="50dp"
+                  android:layout_height="50dp"
+                  android:background="@drawable/timetable_border_25dp"
+                  android:gravity="center"
+                  android:orientation="vertical">
+
+                    <ImageView
+                      android:id="@+id/id_img2"
+                      android:layout_width="30dp"
+                      android:layout_height="30dp"
+                      android:src="@drawable/timetable_ic_multi" />
+                </LinearLayout>
+
+                <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="5dp"
+                  android:text="课表包" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_func_scan"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/timetable_border_25dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/id_img1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/timetable_ic_scan" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="超级课程表" />
+            </LinearLayout>
+
+            <LinearLayout
+              android:id="@+id/id_func_theme"
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:gravity="center"
+              android:orientation="vertical">
+
+                <LinearLayout
+                  android:layout_width="50dp"
+                  android:layout_height="50dp"
+                  android:background="@drawable/timetable_border_25dp"
+                  android:gravity="center"
+                  android:orientation="vertical">
+
+                    <ImageView
+                      android:id="@+id/id_img3"
+                      android:layout_width="30dp"
+                      android:layout_height="30dp"
+                      android:src="@drawable/timetable_ic_superimport" />
+                </LinearLayout>
+
+                <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="5dp"
+                  android:text="超级课程表" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_func_setting"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/timetable_border_25dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/id_img4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/timetable_ic_setting" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="工具箱" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.timecat.module.timetable.CustomGridView
+            android:id="@+id/id_func_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:gravity="center"
+            android:numColumns="5"/>
+
+        <View
+            android:id="@+id/id_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/app_line" />
+
+    <LinearLayout
+        android:id="@+id/id_bind_course"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/timetable_border_10_red"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/app_white"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="17sp"
+            android:text="关联课表"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/timetable_ic_setting"/>
+    </LinearLayout>
+
+        <!--日视图-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_white"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_cardview_today"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="第2周 周四"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/id_func_schedulename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/app_gray"
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_cardview_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></LinearLayout>
+
+        </LinearLayout>
+
+        <!--日视图-->
+        <LinearLayout
+            android:id="@+id/id_ta_layout"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_white"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ta的课表"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/timetable_border_20_message"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/id_func_setting_img"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/timetable_ic_setting"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_cardview_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"></LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

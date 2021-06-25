@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:id="@+id/id_layout"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/id_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="课程表"
+            android:textStyle="bold"
+            android:textColor="@color/app_white"
+            android:layout_marginLeft="15dp"
+            android:textSize="17sp" />
+        <TextView
+            android:id="@+id/id_schedulename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="默认课表"
+            android:textColor="@color/app_white"
+            android:layout_marginLeft="10dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/id_main_menu"
+        android:visibility="gone"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:padding="5dp"
+        android:layout_marginRight="10dp"/>
+</LinearLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.timecat.module.timetable">
+
+  <application>
+    <meta-data
+      android:name="com.timecat.module.timetable.app.GlobalConfiguration"
+      android:value="ConfigModule"/>
+
+    <activity
+      android:launchMode="singleTop"
+      android:name=".MainActivity"
+      android:theme="@style/timetable_mainTheme"/>
+
+    <activity
+      android:name=".activity.hpu.ImportMajorActivity"
+      android:theme="@style/timetable_AppTheme"
+      android:windowSoftInputMode="stateAlwaysHidden"/>
+    <activity
+      android:name=".activity.schedule.TimetableDetailActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.hpu.HpuRepertoryActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.schedule.AddTimetableActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.MenuActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.WebViewActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.schedule.TimetableManagerActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.schedule.MultiScheduleActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+
+    <!-- 桌面小部件 -->
+    <receiver
+      android:label="课表日视图"
+      android:name=".appwidget.ScheduleAppWidget">
+      <intent-filter>
+        <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.TIME_SET"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="com.zhuangfei.action.POINTER_CLICK"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="com.zhuangfei.action.APPWIDGET_UPDATE"/>
+      </intent-filter>
+
+
+      <meta-data
+        android:name="android.appwidget.provider"
+        android:resource="@xml/timetable_schedule_app_widget_info"/>
+    </receiver>
+
+    <service
+      android:enabled="true"
+      android:exported="false"
+      android:name=".appwidget.ScheduleService"
+      android:permission="android.permission.BIND_REMOTEVIEWS"/>
+
+    <activity
+      android:name=".activity.AboutActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.ScanActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.schedule.CreateScheduleNameActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.schedule.ModifyScheduleNameActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.adapter.SearchSchoolActivity"
+      android:theme="@style/timetable_searchTheme"
+      android:windowSoftInputMode="stateHidden"/>
+
+    <activity
+      android:name=".activity.adapter.UploadHtmlActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.adapter.AdapterTipActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.adapter.AdapterSchoolActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.adapter.AdapterSameTypeActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.debug.AdapterDebugListActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.debug.AdapterDebugHtmlActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.debug.DebugActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.debug.AdapterDebugTipActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.debug.DebugDisplayActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.ThemeMarketActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.StationWebViewActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.MessageActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+    <activity
+      android:name=".activity.BindSchoolActivity"
+      android:theme="@style/timetable_AppTheme"
+      />
+  </application>
+
+</manifest>

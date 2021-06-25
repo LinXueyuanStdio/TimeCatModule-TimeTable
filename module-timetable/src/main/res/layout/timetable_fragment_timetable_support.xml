@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_status_bar" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="?android:toolbarStyle"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <com.timecat.layout.ui.standard.tablayout.CommonTabLayout
+                android:id="@+id/tab"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                app:tl_indicator_color="?android:textColorPrimary"
+                app:tl_indicator_corner_radius="2dp"
+                app:tl_indicator_height="4dp"
+                app:tl_indicator_margin_bottom="3dp"
+                app:tl_indicator_width="4dp"
+                app:tl_subtextSelectColor="?android:textColorPrimary"
+                app:tl_subtextUnselectColor="?android:attr/textColorSecondary"
+                app:tl_subtextsize="11sp"
+                app:tl_textSelectColor="?android:textColorPrimary"
+                app:tl_textUnselectColor="?android:attr/textColorSecondary"
+                app:tl_textsize="16sp" />
+
+            <TextView
+                android:id="@+id/id_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/id_title_tab2"
+                android:gravity="center"
+                android:textColor="@color/app_blue2"
+                android:textSize="16sp"
+                android:visibility="gone" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
