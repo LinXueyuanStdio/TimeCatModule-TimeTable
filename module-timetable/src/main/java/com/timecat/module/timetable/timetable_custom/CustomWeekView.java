@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.timecat.module.timetable.R;
 import com.zhuangfei.timetable.listener.IWeekView;
 import com.zhuangfei.timetable.listener.OnWeekItemClickedAdapter;
@@ -18,6 +19,7 @@ import com.zhuangfei.timetable.model.ScheduleSupport;
 import com.zhuangfei.timetable.model.WeekViewEnable;
 import com.zhuangfei.timetable.utils.ScreenUtils;
 import com.zhuangfei.timetable.view.PerWeekView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,8 +48,8 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
     private List<TextView> textViews;
 
     //当前周
-    private int curWeek=1;
-    private int preIndex=1;
+    private int curWeek = 1;
+    private int preIndex = 1;
 
     //多少项
     private int itemCount = 20;
@@ -64,7 +66,7 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
      * @return
      */
     public IWeekView.OnWeekItemClickedListener onWeekItemClickedListener() {
-        if(onWeekItemClickedListener==null) onWeekItemClickedListener=new OnWeekItemClickedAdapter();
+        if (onWeekItemClickedListener == null) { onWeekItemClickedListener = new OnWeekItemClickedAdapter(); }
         return onWeekItemClickedListener;
     }
 
@@ -83,7 +85,7 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
      * @return
      */
     public IWeekView.OnWeekLeftClickedListener onWeekLeftClickedListener() {
-        if(onWeekLeftClickedListener==null) onWeekLeftClickedListener=new OnWeekLeftClickedAdapter();
+        if (onWeekLeftClickedListener == null) { onWeekLeftClickedListener = new OnWeekLeftClickedAdapter(); }
         return onWeekLeftClickedListener;
     }
 
@@ -104,7 +106,7 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
      */
     @Override
     public CustomWeekView curWeek(int curWeek) {
-        if(curWeek<1) curWeek=1;
+        if (curWeek < 1) { curWeek = 1; }
         this.curWeek = curWeek;
         return this;
     }
@@ -116,7 +118,7 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
      */
     @Override
     public CustomWeekView itemCount(int count) {
-        if (count <= 0) return this;
+        if (count <= 0) { return this; }
         this.itemCount = count;
         return this;
     }
@@ -144,7 +146,7 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
      */
     @Override
     public CustomWeekView data(List<Schedule> scheduleList) {
-        if (scheduleList == null) return null;
+        if (scheduleList == null) { return null; }
         this.dataSource = scheduleList;
         return this;
     }
@@ -155,7 +157,7 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
      */
     @Override
     public List<Schedule> dataSource() {
-        if (dataSource == null) dataSource = new ArrayList<>();
+        if (dataSource == null) { dataSource = new ArrayList<>(); }
         return dataSource;
     }
 
@@ -168,9 +170,9 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
     private void initView() {
         mInflate.inflate(R.layout.timetable_view_custom_weekview, this);
         container = findViewById(R.id.id_weekview_container);
-        root=findViewById(R.id.id_root);
-        leftlayout=findViewById(R.id.id_weekview_leftlayout);
-        scrollView=findViewById(R.id.id_weekview_scrollview);
+        root = findViewById(R.id.id_root);
+        leftlayout = findViewById(R.id.id_weekview_leftlayout);
+        scrollView = findViewById(R.id.id_weekview_scrollview);
     }
 
     /**
@@ -179,8 +181,8 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
     @Override
     public CustomWeekView showView() {
         container.removeAllViews();
-        layouts=new ArrayList<>();
-        textViews=new ArrayList<>();
+        layouts = new ArrayList<>();
+        textViews = new ArrayList<>();
 
         leftlayout.setOnClickListener(new OnClickListener() {
             @Override
@@ -190,21 +192,21 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
         });
 
         for (int i = 1; i <= itemCount; i++) {
-            final int tmp=i;
+            final int tmp = i;
             View view = mInflate.inflate(R.layout.item_weekview, null);
-            final LinearLayout perLayout=view.findViewById(R.id.id_perweekview_layout);
+            final LinearLayout perLayout = view.findViewById(R.id.id_perweekview_layout);
             TextView weekText = view.findViewById(R.id.id_weektext);
             TextView bottomText = view.findViewById(R.id.id_weektext_bottom);
 
             weekText.setText("第" + i + "周");
-            if(i==curWeek) bottomText.setText("(本周)");
+            if (i == curWeek) { bottomText.setText("(本周)"); }
             PerWeekView perWeekView = view.findViewById(R.id.id_perweekview);
             perWeekView.setData(dataSource(), i);
             perLayout.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     resetBackground();
-                    preIndex=tmp;
+                    preIndex = tmp;
                     perLayout.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.weekview_white));
                     onWeekItemClickedListener().onWeekClicked(tmp);
                 }
@@ -214,8 +216,8 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
             textViews.add(bottomText);
             container.addView(view);
         }
-        if(curWeek>0&&curWeek<=layouts.size()){
-            layouts.get(curWeek-1).setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.weekview_thisweek));
+        if (curWeek > 0 && curWeek <= layouts.size()) {
+            layouts.get(curWeek - 1).setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.weekview_thisweek));
         }
         return this;
     }
@@ -225,22 +227,21 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
      * @return
      */
     @Override
-    public CustomWeekView updateView(){
-        if(layouts==null||layouts.size()==0) return this;
-        if(textViews==null||textViews.size()==0) return this;
+    public CustomWeekView updateView() {
+        if (layouts == null || layouts.size() == 0) { return this; }
+        if (textViews == null || textViews.size() == 0) { return this; }
 
-        for(int i=0;i<layouts.size();i++){
-            if(curWeek-1==i) {
+        for (int i = 0; i < layouts.size(); i++) {
+            if (curWeek - 1 == i) {
                 textViews.get(i).setText("(本周)");
-            }
-            else{
+            } else {
                 textViews.get(i).setText("");
             }
             layouts.get(i).setBackgroundColor(getContext().getResources().getColor(R.color.app_course_chooseweek_bg));
         }
 
-        if(curWeek>0&&curWeek<=layouts.size()){
-            layouts.get(curWeek-1).setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.weekview_thisweek));
+        if (curWeek > 0 && curWeek <= layouts.size()) {
+            layouts.get(curWeek - 1).setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.weekview_thisweek));
         }
         return this;
     }
@@ -248,15 +249,15 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
     /**
      * 重置背景色
      */
-    public void resetBackground(){
-        layouts.get(preIndex-1).setBackgroundColor(getContext().getResources().getColor(R.color.app_course_chooseweek_bg));
-        layouts.get(curWeek-1).setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.weekview_thisweek));
+    public void resetBackground() {
+        layouts.get(preIndex - 1).setBackgroundColor(getContext().getResources().getColor(R.color.app_course_chooseweek_bg));
+        layouts.get(curWeek - 1).setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.weekview_thisweek));
     }
 
     /**
      * 隐藏左侧设置当前周的控件
      */
-    public CustomWeekView hideLeftLayout(){
+    public CustomWeekView hideLeftLayout() {
         leftlayout.setVisibility(View.GONE);
         return this;
     }
@@ -266,10 +267,10 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
      * @param isShow true:显示，false:隐藏
      */
     @Override
-    public CustomWeekView isShow(boolean isShow){
-        if(isShow){
+    public CustomWeekView isShow(boolean isShow) {
+        if (isShow) {
             root.setVisibility(VISIBLE);
-        }else{
+        } else {
             root.setVisibility(GONE);
         }
         return this;
@@ -280,8 +281,8 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
      * @return
      */
     @Override
-    public boolean isShowing(){
-        if(root.getVisibility()==GONE) return false;
+    public boolean isShowing() {
+        if (root.getVisibility() == GONE) { return false; }
         return true;
     }
 
@@ -290,18 +291,18 @@ public class CustomWeekView extends LinearLayout implements WeekViewEnable<Custo
      *
      * @param index 0：第一个位置
      */
-    public void scrollToIndex(final int index){
-        int c=container.getChildCount();
-        if(index<0||index>=c) return;
-        final LinearLayout layout=layouts.get(index);
-        if(layout!=null){
+    public void scrollToIndex(final int index) {
+        int c = container.getChildCount();
+        if (index < 0 || index >= c) { return; }
+        final LinearLayout layout = layouts.get(index);
+        if (layout != null) {
             scrollView.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     Log.d("ScrollView", "run: ");
-                    scrollView.scrollTo(index* ScreenUtils.dip2px(getContext(),65),0);
+                    scrollView.scrollTo(index * ScreenUtils.dip2px(getContext(), 65), 0);
                 }
-            },200);
+            }, 200);
         }
     }
 }
