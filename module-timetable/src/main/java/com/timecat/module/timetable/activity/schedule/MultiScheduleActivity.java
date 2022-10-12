@@ -44,7 +44,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import butterknife.OnItemClick;
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
